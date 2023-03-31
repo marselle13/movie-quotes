@@ -1,5 +1,3 @@
 <x-layout >
-    <x-card />
-
-
+    <x-landing />
 </x-layout>
