@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotesController;
-
+use App\Http\Controllers\SessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +15,6 @@ use App\Http\Controllers\QuotesController;
 */
 
 Route::get('/', [QuotesController::class, 'index']);
+
+
+Route::get('login',[SessionController::class,'index'])->middleware('guest');

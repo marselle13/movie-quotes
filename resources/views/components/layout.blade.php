@@ -7,10 +7,10 @@
     <div class="flex h-20 items-center justify-center">
         <div>
             <div class="flex space-x-4">
-                <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Quotes</a>
+                <a href="/" class="text-white text-gray-300 rounded-md px-3 py-2 text-sm font-medium  hover:bg-gray-700  {{request()->is('/') ? "bg-gray-900" : ""}}" aria-current="page">Quotes</a>
 
-                <a href="#"
-                   class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Log in</a>
+                <a href="/login"
+                   class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium {{request()->getRequestUri() === '/login' ? "bg-gray-900" : ""}}">Log in</a>
 
             </div>
         </div>
