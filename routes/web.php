@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\SessionController;
-use App\Models\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +13,9 @@ use App\Models\AdminController;
 |
 */
 
-Route::get('/', [MovieController::class, 'index']);
-Route::get('movie', [MovieController::class, 'show']);
+Route::view('/', 'movie.index')->name('movie.index');
+Route::view('movie', 'movie.show')->name('movie.show');
 
-Route::get('login', [SessionController::class, 'index'])->middleware('guest');
+Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
 
-Route::get('admin/movies',[AdminController::class,'index']);
+Route::view('admin/movies/', 'admin.index')->name('admin.index');

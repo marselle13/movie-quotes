@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-class MovieController extends Controller
+class AuthController extends Controller
 {
-
 }
