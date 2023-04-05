@@ -30,4 +30,5 @@
 <main class="flex flex-col  items-center justify-center mt-20">
     {{$slot}}
 </main>
+<x-success/>
 </body>
