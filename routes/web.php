@@ -14,7 +14,7 @@ use App\Http\Controllers\MovieController;
 */
 Route::controller(MovieController::class)->group(function (){
     Route::get('/', 'index')->name('movie.index');
-    Route::get('movie', 'show')->name('movie.show');
+    Route::get('movie/{movie:slug}', 'show')->name('movie.show');
 });
 
 
