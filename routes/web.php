@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'movie.index')->name('movie.index');
 Route::view('movie', 'movie.show')->name('movie.show');
 
-Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
+Route::view('login', 'auth.loginPage')->name('auth.index');
+Route::controller(AuthController::class)->group(function () {
+	Route::post('login', 'login')->name('auth.login');
+});
 
 Route::view('admin/movies/', 'admin.index')->name('admin.index');
