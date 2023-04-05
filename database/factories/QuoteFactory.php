@@ -17,7 +17,7 @@ class QuoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'quote' => fake()->text,
         ];
     }
 }
