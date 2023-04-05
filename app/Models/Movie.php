@@ -9,7 +9,7 @@ class Movie extends Model
 {
 	use HasFactory;
 
-	protected $with = ['quotes'];
+	protected $with = ['quote'];
 
 	public function quote()
 	{
