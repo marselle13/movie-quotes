@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::view('/', 'movie.index')->name('movie.index');
+Route::view('movie', 'movie.show')->name('movie.show');
+
+Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
+
+Route::view('admin/movies/', 'admin.index')->name('admin.index');
