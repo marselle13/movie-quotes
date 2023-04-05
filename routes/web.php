@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\AuthController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,5 +22,9 @@ Route::controller(MovieController::class)->group(function (){
 
 
 Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
+Route::controller(AuthController::class)->group(function () {
+	Route::post('login', 'login')->middleware('guest')->name('auth.login');
+	Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
+});
 
 Route::view('admin/movies/', 'admin.index')->name('admin.index');
