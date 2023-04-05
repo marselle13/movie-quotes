@@ -15,7 +15,14 @@ class AuthController extends Controller
 				->withErrors(['password' => 'Your provided info is not correct']);
 		}
 
-		return redirect(route('admin.index'))->withSuccess('Welcome Back'
-        );
+		return redirect(route('admin.index'))->withSuccess(
+			'Welcome Back'
+		);
+	}
+
+	public function logout(): RedirectResponse
+	{
+		auth()->logout();
+		return redirect(route('movie.index'))->withSuccess('Goodbye!');
 	}
 }
