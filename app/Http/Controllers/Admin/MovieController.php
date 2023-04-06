@@ -27,7 +27,7 @@ class MovieController extends Controller
 		Movie::create($request->validated() + [
 			'slug' => Str::slug($request->input('name.en')),
 		]);
-		return redirect()->route('movies.index')->withSuccess('Movie Created!');
+		return redirect()->route('movies.index')->withSuccess(trans('messages.movieCreated'));
 	}
 
 	public function edit(Movie $movie): View
@@ -37,13 +37,15 @@ class MovieController extends Controller
 
 	public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
 	{
-		$movie->update($request->validated());
-		return redirect()->route('movies.index')->withSuccess('Movie Updated Successfully!');
+		$movie->update($request->validated() + [
+			'slug' => Str::slug($request->input('name.en')),
+		]);
+		return redirect()->route('movies.index')->withSuccess(trans('messages.successEditMovie'));
 	}
 
 	public function destroy(Movie $movie): RedirectResponse
 	{
 		$movie->delete();
-		return back()->withSuccess('Movie Deleted!');
+		return back()->withSuccess(trans('messages.successDeleteMovie'));
 	}
 }

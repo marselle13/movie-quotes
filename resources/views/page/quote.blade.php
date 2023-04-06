@@ -3,7 +3,7 @@
         <x-landing :quote="$quote"/>
     @else
         <div class="mt-72">
-            <h3 class="text-5xl">No Quotes To Show.</h3>
+            <h3 class="text-5xl">{{trans('messages.noQuotes')}}</h3>
         </div>
     @endif
 </x-layout>

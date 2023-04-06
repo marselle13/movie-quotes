@@ -5,14 +5,14 @@
     </h1>
     <div class="flex">
         <aside class="w-48 flex-shrink-0">
-            <h4 class="font-bold mb-6">Links</h4>
+            <h4 class="font-bold mb-6">{{trans('messages.links')}}</h4>
             <ul>
                 <li>
-                    <a href="{{route('movies.index')}}" class="{{request()->is('admin/movies') ? "text-white" : " "}}">All Movies</a>
+                    <a href="{{route('movies.index')}}" class="{{request()->is('admin/movies') ? "text-white" : " "}}">{{trans('messages.allMovies')}}</a>
                 </li>
                 <li>
                     <a href="{{route('movies.create')}}" class="{{request()->is('admin/movies/create') ? "text-white" : " "}}"
-                    >Add Movie</a>
+                    >{{trans('messages.addMovie')}}</a>
                 </li>
             </ul>
         </aside>
