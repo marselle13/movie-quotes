@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
  */
+Route::get('language/{locale}', [LanguageController::class, 'setLanguage'])->name('language.set');
 
 Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
 
 Route::get('/', [QuoteController::class, 'index'])->name('quote.index');
 
-Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
+Route::view('login', 'auth.loginPage')->middleware('guest')->name('auth.loginPage');
 Route::controller(AuthController::class)->group(function () {
 	Route::post('login', 'login')->middleware('guest')->name('auth.login');
 	Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
