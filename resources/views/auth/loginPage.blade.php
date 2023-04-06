@@ -5,8 +5,8 @@
         </div>
         <form class="mt-8 space-y-6" action={{route('auth.login')}} method="POST">
             @csrf
-            <x-form.input name="email" label="{{trans('messages.email')}}"/>
-            <x-form.input name="password" label="{{trans('messages.password')}}"/>
+            <x-form.input name="email" label="{{trans('messages.email')}}" class="text-white"/>
+            <x-form.input name="password" label="{{trans('messages.password')}}" class="text-white"/>
             <x-form.button>{{trans('messages.login')}}</x-form.button>
         </form>
     </div>

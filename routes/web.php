@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\Admin\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ Route::get('language/{locale}', [LanguageController::class, 'setLanguage'])->nam
 
 Route::controller(PageController::class)->group(function () {
 	Route::get('/', 'quote')->name('page.quote');
-	Route::get('movie/{movie:slug}', 'movie')->name('page.movie');
+	Route::get('movies/{movies:slug}', 'movies')->name('page.movies');
 });
 
 Route::view('login', 'auth.loginPage')->middleware('guest')->name('auth.loginPage');
@@ -28,4 +29,8 @@ Route::controller(AuthController::class)->group(function () {
 	Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
 });
 
-Route::view('admin/movies/', 'admin.index')->name('admin.index');
+Route::controller(MovieController::class)->group(function () {
+	Route::get('admin/movies/', 'index')->name('movies.index')->middleware('auth');
+    Route::get('admin/movies/create', 'create')->name('movies.create')->middleware('auth');
+
+});

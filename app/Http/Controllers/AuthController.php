@@ -15,7 +15,7 @@ class AuthController extends Controller
 				->withErrors(['password' => trans('messages.errorLogin')]);
 		}
 
-		return redirect(route('admin.index'))->withSuccess(
+		return redirect(route('movies.index'))->withSuccess(
 			trans('messages.successLogin')
 		);
 	}
