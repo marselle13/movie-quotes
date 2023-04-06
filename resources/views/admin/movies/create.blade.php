@@ -1,10 +1,12 @@
 <x-layout>
     <x-setting heading="Create Movie">
-        <div class="space-y-8">
-            <x-form.input name="movie[en]" label="Movie Name [EN]"/>
-            <x-form.input name="movie[ka]" label="Movie Name [KA]"/>
+
+        <form method="POST" action="/admin/movies" class="space-y-8">
+            @csrf
+            <x-form.input label="Movie Name [EN]" name="name[en]" error="name.en"/>
+            <x-form.input label="Movie Name [KA]" name="name[ka]" error="name.ka"/>
             <x-form.button>Add Movie</x-form.button>
-        </div>
+        </form>
 
 
     </x-setting>

@@ -31,5 +31,6 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(MovieController::class)->group(function () {
 	Route::get('admin/movies/', 'index')->name('movies.index')->middleware('auth');
-	Route::get('admin/movies/create', 'create')->name('movies.create')->middleware('auth');
+    Route::get('admin/movies/create', 'create')->name('movies.create')->middleware('auth');
+    Route::post('admin/movies', 'store')->name('movies.store')->middleware('auth');
 });
