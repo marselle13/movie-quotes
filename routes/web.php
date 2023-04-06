@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\QuoteController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +14,11 @@ use App\Http\Controllers\AuthController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
-Route::view('/', 'movie.index')->name('movie.index');
-Route::view('movie', 'movie.show')->name('movie.show');
+Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
+
+Route::get('/', [QuoteController::class, 'index'])->name('quote.index');
 
 Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
 Route::controller(AuthController::class)->group(function () {
