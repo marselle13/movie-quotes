@@ -1,5 +1,5 @@
 @props(['heading'])
-<div class=" max-w-4xl">
+<div class=" max-w-6xl">
     <h1 class="text-lg font-bold mb-8 border-b pb-2 text-white border-b-gray-800">
         {{ $heading }}
     </h1>

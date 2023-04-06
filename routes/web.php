@@ -20,7 +20,7 @@ Route::get('language/{locale}', [LanguageController::class, 'setLanguage'])->nam
 
 Route::controller(PageController::class)->group(function () {
 	Route::get('/', 'quote')->name('page.quote');
-	Route::get('movies/{movies:slug}', 'movies')->name('page.movies');
+	Route::get('movies/{movie:slug}', 'movie')->name('page.movie');
 });
 
 Route::view('login', 'auth.loginPage')->middleware('guest')->name('auth.loginPage');
@@ -31,6 +31,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(MovieController::class)->group(function () {
 	Route::get('admin/movies/', 'index')->name('movies.index')->middleware('auth');
-    Route::get('admin/movies/create', 'create')->name('movies.create')->middleware('auth');
-
+	Route::get('admin/movies/create', 'create')->name('movies.create')->middleware('auth');
 });

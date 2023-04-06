@@ -16,6 +16,6 @@ class PageController extends Controller
 
 	public function movie(Movie $movie): View
 	{
-		return view('page.movies', ['movies' => $movie]);
+		return view('page.movie', ['movie' => $movie]);
 	}
 }

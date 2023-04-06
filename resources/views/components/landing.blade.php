@@ -5,6 +5,6 @@
     </div>
     <div class="flex flex-col gap-32 text-center">
         <h2 class="text-5xl">{{$quote->quote}}</h2>
-        <a href="/movie/{{$quote->movie->slug}}" class="text-5xl underline">{{$quote->movie->name}}</a>
+        <a href="/movies/{{$quote->movie->slug}}" class="text-5xl underline">{{$quote->movie->name}}</a>
     </div>
 </section>
