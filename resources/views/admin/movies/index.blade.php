@@ -20,7 +20,9 @@
                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                            <form method="#" action="#">
+                                            <form method="POST" action="/admin/movies/{{$movie->id}}">
+                                                @csrf
+                                                @method('DELETE')
                                                 <button class="text-gray-400 hover:text-gray-700">Delete
                                                 </button>
                                             </form>

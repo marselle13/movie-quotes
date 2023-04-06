@@ -26,6 +26,12 @@ class MovieController extends Controller
 		Movie::create($request->validated() + [
 			'slug' => Str::slug($request->input('name.en')),
 		]);
-		return redirect()->route('movies.index');
+		return redirect()->route('movies.index')->withSuccess('Movie Created!');
+	}
+
+	public function destroy(Movie $movie)
+	{
+		$movie->delete();
+		return back()->withSuccess('Movie Deleted!');
 	}
 }
