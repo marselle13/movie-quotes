@@ -33,5 +33,7 @@ Route::controller(MovieController::class)->group(function () {
 	Route::get('admin/movies/', 'index')->name('movies.index')->middleware('auth');
 	Route::get('admin/movies/create', 'create')->name('movies.create')->middleware('auth');
 	Route::post('admin/movies', 'store')->name('movies.store')->middleware('auth');
+	Route::get('admin/movies/{movie}/edit', 'edit')->name('movies.edit')->middleware('auth');
+	Route::patch('admin/movies/{movie}', 'update')->name('movies.update')->middleware('auth');
 	Route::delete('admin/movies/{movie}', 'destroy')->name('movies.destroy')->middleware('auth');
 });

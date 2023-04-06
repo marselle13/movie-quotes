@@ -9,14 +9,14 @@
                                 <tbody class="bg-white">
                                 @foreach($movies as $movie)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
+                                        <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200 w-full">
                                             <div class="flex items-center">
                                                 <a href="/movies/{{$movie->slug}}"
                                                    class="text-sm leading-5 font-medium text-gray-900">{{$movie->name}}</a>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                            <a href="#"
+                                            <a href="/admin/movies/{{$movie->id}}/edit"
                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
