@@ -29,7 +29,7 @@ class MovieController extends Controller
 		return redirect()->route('movies.index')->withSuccess('Movie Created!');
 	}
 
-	public function destroy(Movie $movie)
+	public function destroy(Movie $movie): RedirectResponse
 	{
 		$movie->delete();
 		return back()->withSuccess('Movie Deleted!');
