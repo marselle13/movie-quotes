@@ -9,17 +9,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class MovieFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
-        return [
-            'name' => json_encode(['en' => fake()->sentence,
-                'ka' => fake()->sentence]),
-            'slug' => fake()->unique()->slug,
-        ];
-    }
+	/**
+	 * Define the model's default state.
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function definition(): array
+	{
+		return [
+			'name' => ['en' => fake()->sentence,
+				'ka'           => fake()->sentence],
+			'slug' => fake()->unique()->slug,
+		];
+	}
 }

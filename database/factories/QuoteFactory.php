@@ -17,8 +17,8 @@ class QuoteFactory extends Factory
 	public function definition(): array
 	{
 		return [
-			'quote' => json_encode(['en' => fake()->text,
-				'ka'                        => fake()->text]),
+			'quote' => ['en'=> fake()->text,
+				'ka'           => fake()->text],
 		];
 	}
 }

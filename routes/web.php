@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +17,10 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('language/{locale}', [LanguageController::class, 'setLanguage'])->name('language.set');
 
-Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
-
-Route::get('/', [QuoteController::class, 'index'])->name('quote.index');
+Route::controller(PageController::class)->group(function () {
+	Route::get('/', 'quote')->name('page.quote');
+	Route::get('movie/{movie:slug}', 'movie')->name('page.movie');
+});
 
 Route::view('login', 'auth.loginPage')->middleware('guest')->name('auth.loginPage');
 Route::controller(AuthController::class)->group(function () {
