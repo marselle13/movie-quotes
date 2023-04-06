@@ -12,17 +12,17 @@ class AuthController extends Controller
 		if (!auth()->attempt($request->validated()))
 		{
 			return back()
-				->withErrors(['password' => 'Your provided info is not correct']);
+				->withErrors(['password' => trans('messages.errorLogin')]);
 		}
 
 		return redirect(route('admin.index'))->withSuccess(
-			'Welcome Back'
+			trans('messages.successLogin')
 		);
 	}
 
 	public function logout(): RedirectResponse
 	{
 		auth()->logout();
-		return redirect(route('movie.index'))->withSuccess('Goodbye!');
+		return redirect(route('quote.index'))->withSuccess(trans('messages.successLogout'));
 	}
 }
