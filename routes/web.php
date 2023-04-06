@@ -22,8 +22,8 @@ Route::get('/', [QuoteController::class, 'index'])->name('quote.index');
 
 Route::view('login', 'auth.loginPage')->name('auth.index')->middleware('guest');
 Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login')->middleware('guest')->name('auth.login');
-    Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
+	Route::post('login', 'login')->middleware('guest')->name('auth.login');
+	Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
 });
 
 Route::view('admin/movies/', 'admin.index')->name('admin.index');
