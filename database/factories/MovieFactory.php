@@ -16,9 +16,10 @@ class MovieFactory extends Factory
 	 */
 	public function definition(): array
 	{
+		$fakerKa = \Faker\Factory::create('ka_GE');
 		return [
 			'name' => ['en' => fake()->sentence,
-				'ka'           => fake()->sentence],
+				'ka'           => $fakerKa->realText(10)],
 			'slug' => fake()->unique()->slug,
 		];
 	}
