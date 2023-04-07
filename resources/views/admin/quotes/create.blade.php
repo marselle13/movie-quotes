@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting heading="{{trans('messages.addQuote')}}">
-        <form method="POST" action="/admin/quotes" class="space-y-8 mb-4" enctype="multipart/form-data">
+        <form method="POST" action="{{route('quotes.index')}}" class="space-y-8 mb-4" enctype="multipart/form-data">
             @csrf
             <x-form.textArea name="quote[en]" label="{{trans('messages.quote')}} [EN]" argument="quote.en"/>
             <x-form.textArea name="quote[ka]" label="{{trans('messages.quote')}} [KA]" argument="quote.ka"/>

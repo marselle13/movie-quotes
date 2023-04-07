@@ -2,7 +2,8 @@
 <section class="space-y-12">
     @foreach($quotes as $quote)
         <div id={{$quote->id}}>
-            <img src="{{asset('storage/' . $quote->thumbnail)}}" alt="img" class="w-[700px] h-[386px] bg-cover rounded-t-lg">
+            <img src="{{asset('storage/' . $quote->thumbnail)}}" alt="img"
+                 class="w-[700px] h-[386px] bg-cover rounded-t-lg">
             <div class="bg-white border-t-2 rounded-b-lg border-black px-4 py-8">
                 <p>{{$quote->quote}}</p>
             </div>

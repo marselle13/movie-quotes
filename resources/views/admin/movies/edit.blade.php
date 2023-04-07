@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting :heading="trans('messages.editMovie') . ': ' . $movie->name">
-        <form method="POST" action="/admin/movies/{{$movie->id}}" class="space-y-8">
+        <form method="POST" action="{{route('movies.update',$movie->id)}}" class="space-y-8">
             @csrf
             @method('PATCH')
             <x-form.input label="{{trans('messages.movieName')}} [EN]" name="name[en]" argument="name.en" value="{{old('name.en',$movie->getTranslation('name','en'))}}"/>
