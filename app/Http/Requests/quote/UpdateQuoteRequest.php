@@ -17,7 +17,7 @@ class UpdateQuoteRequest extends FormRequest
 		return [
 			'quote.en'  => ['required', Rule::unique('quotes', 'quote->en')->ignore($this->route('quote'))],
 			'quote.ka'  => ['required', Rule::unique('quotes', 'quote->ka')->ignore($this->route('quote'))],
-			'movie_id'  => ['required'],
+			'movie_id'  => ['required', Rule::exists('movies', 'id')],
 			'thumbnail' => ['image'],
 		];
 	}

@@ -7,6 +7,7 @@ use App\Http\Requests\quote\StoreQuoteRequest;
 use App\Http\Requests\quote\UpdateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -27,6 +28,7 @@ class QuoteController extends Controller
 		Quote::create(
 			[...$request->validated(), 'thumbnail' => $request->file('thumbnail')->store('thumbnails')]
 		);
+
 		return redirect()->route('quotes.index')->withSuccess(trans('messages.quoteCreated'));
 	}
 
@@ -37,13 +39,20 @@ class QuoteController extends Controller
 
 	public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
 	{
-		$quote->update([...$request->validated(), 'thumbnail' => $request->file('thumbnail')?->store('thumbnails') ?? $quote->thumbnail]);
+		$updateRequest = $request->validated();
+		if ($request->hasFile('thumbnail'))
+		{
+			Storage::delete($quote->thumbnail);
+			$updateRequest['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
+		}
+		$quote->update($updateRequest);
 		return redirect()->route('quotes.index')->withSuccess(trans('messages.successEditQuote'));
 	}
 
 	public function destroy(Quote $quote): RedirectResponse
 	{
 		$quote->delete();
+		Storage::delete($quote->thumbnail);
 		return back()->withSuccess(trans('messages.successDeleteQuote'));
 	}
 }
