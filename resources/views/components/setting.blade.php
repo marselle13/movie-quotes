@@ -11,8 +11,16 @@
                     <a href="{{route('movies.index')}}" class="{{request()->is('admin/movies') ? "text-white" : " "}}">{{trans('messages.allMovies')}}</a>
                 </li>
                 <li>
+                    <a href="{{route('quotes.index')}}" class="{{request()->is('admin/quotes') ? "text-white" : " "}}">{{trans('messages.allQuotes')}}</a>
+                </li>
+                <li>
                     <a href="{{route('movies.create')}}" class="{{request()->is('admin/movies/create') ? "text-white" : " "}}"
                     >{{trans('messages.addMovie')}}</a>
+                </li>
+
+                <li>
+                    <a href="{{route('quotes.create')}}" class="{{request()->is('admin/quotes/create') ? "text-white" : " "}}"
+                    >{{trans('messages.addQuote')}}</a>
                 </li>
             </ul>
         </aside>
