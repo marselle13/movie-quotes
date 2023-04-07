@@ -1,5 +1,5 @@
 <x-layout>
-    @if($quote ->count())
+    @if($quote)
         <x-landing :quote="$quote"/>
     @else
         <div class="mt-72">

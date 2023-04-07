@@ -10,8 +10,7 @@ class PageController extends Controller
 {
 	public function quote(): View
 	{
-		$quote = Quote::when(Quote::count() > 0, fn ($quote) => $quote->inRandomOrder()->first());
-		return view('page.quote', ['quote' => $quote]);
+		return view('page.quote', ['quote' => Quote::inRandomOrder()->first()]);
 	}
 
 	public function movie(Movie $movie): View
