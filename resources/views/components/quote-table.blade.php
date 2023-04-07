@@ -7,7 +7,7 @@
                     <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200 w-full">
                         <div class="flex items-center">
                             <a href="/movies/{{$quote->movie->slug}}#{{$quote->id}}"
-                               class="text-sm leading-5 font-medium text-gray-900">{{ Str::limit($quote->quote, 50, $end='...') }}</a>
+                               class="text-sm leading-5 font-medium text-gray-900">{{ Str::limit($quote->quote, 40, $end='...') }}</a>
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
@@ -28,7 +28,7 @@
         </table>
     </div>
 @else
-    <div class="text-center">
-        <p class="pt-3">{{trans('messages.noQuotes')}}</p>
+    <div class="text-center h-full items-center flex justify-center">
+        <p>{{trans('messages.noQuotes')}}</p>
     </div>
 @endif

@@ -24,7 +24,7 @@
                 </li>
             </ul>
         </aside>
-        <main class="min-w-[700px]  border border-gray-200 p-4 rounded-xl bg-gray-300">
+        <main class="min-w-[700px]  border border-gray-200 p-4 rounded-xl bg-gray-300 h-full">
             {{$slot}}
         </main>
     </div>
