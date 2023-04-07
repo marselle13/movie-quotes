@@ -20,6 +20,7 @@ return [
 	'allMovies'              => 'All Movies',
 	'allQuotes'              => 'All Quotes',
 	'editMovie'              => 'Edit Movie',
+    'editQuote'              => 'Edit Quote',
 	'edit'                   => 'Edit',
 	'delete'                 => 'Delete',
 	'addMovie'               => 'Add Movie',

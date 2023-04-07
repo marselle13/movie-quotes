@@ -43,5 +43,7 @@ Route::controller(QuoteController::class)->group(function () {
 	Route::get('admin/quotes', 'index')->name('quotes.index')->middleware('auth');
     Route::get('admin/quotes/create', 'create')->name('quotes.create')->middleware('auth');
     Route::post('admin/quotes','store')->name('quotes.store')->middleware('auth');
+    Route::get('admin/quotes/{quote}/edit', 'edit')->name('quotes.edit')->middleware('auth');
+    Route::patch('admin/quotes/{quote}','update')->name('quotes.update')->middleware('auth');
     Route::delete('admin/quotes/{quote}', 'destroy')->name('quotes.destroy')->middleware('auth');
 });
