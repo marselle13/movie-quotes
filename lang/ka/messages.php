@@ -25,6 +25,7 @@ return [
 	'addMovie'             => 'ფილმის დამატება',
 	'addQuote'             => 'ციტატის დამატება',
 	'movieCreated'         => 'ფილმი შეიქმნა!',
+    'quoteCreated'         => 'ციტატა შეიქმნა!',
 	'movieName'            => 'ფილმის სახელი',
 	'links'                => 'ლინკები',
 ];

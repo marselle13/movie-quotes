@@ -25,6 +25,7 @@ return [
 	'addMovie'               => 'Add Movie',
 	'addQuote'               => 'Add Quote',
 	'movieCreated'           => 'Movie Created!',
+	'quoteCreated'           => 'Quote Created!',
 	'movieName'              => 'Movie Name',
 	'links'                  => 'Links',
 ];

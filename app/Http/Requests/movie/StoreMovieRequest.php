@@ -3,6 +3,7 @@
 namespace App\Http\Requests\movie;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreMovieRequest extends FormRequest
 {
@@ -14,8 +15,8 @@ class StoreMovieRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'name.en' => 'required|unique:movies,name->en',
-			'name.ka' => 'required|unique:movies,name->ka',
+			'name.en' => ['required', Rule::unique('movies', 'name->en')],
+			'name.ka' => ['required', Rule::unique('movies', 'name->ka')],
 		];
 	}
 
@@ -27,8 +28,8 @@ class StoreMovieRequest extends FormRequest
 	public function attributes(): array
 	{
 		return [
-			'name.en' => 'Movie Name',
-			'name.ka' => 'Movie Name',
+			'name.en' => trans('messages.movieName'),
+			'name.ka' => trans('messages.movieName'),
 		];
 	}
 }
