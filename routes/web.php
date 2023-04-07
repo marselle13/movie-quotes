@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Admin\MovieController;
+use App\Http\Controllers\Admin\QuoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +37,11 @@ Route::controller(MovieController::class)->group(function () {
 	Route::get('admin/movies/{movie}/edit', 'edit')->name('movies.edit')->middleware('auth');
 	Route::patch('admin/movies/{movie}', 'update')->name('movies.update')->middleware('auth');
 	Route::delete('admin/movies/{movie}', 'destroy')->name('movies.destroy')->middleware('auth');
+});
+
+Route::controller(QuoteController::class)->group(function () {
+	Route::get('admin/quotes', 'index')->name('quotes.index')->middleware('auth');
+    Route::get('admin/quotes/create', 'create')->name('quotes.create')->middleware('auth');
+    Route::post('admin/quotes','store')->name('quotes.store')->middleware('auth');
+    Route::delete('admin/quotes/{quote}', 'destroy')->name('quotes.destroy')->middleware('auth');
 });

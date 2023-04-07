@@ -20,6 +20,7 @@ class QuoteFactory extends Factory
 		return [
 			'quote' => ['en'=> fake()->text,
 				'ka'           => $fakerKa->realText(100)],
+			'thumbnail' => 'images/example.png',
 		];
 	}
 }
