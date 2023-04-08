@@ -29,7 +29,7 @@ class QuoteController extends Controller
 			[...$request->validated(), 'thumbnail' => $request->file('thumbnail')->store('thumbnails')]
 		);
 
-		return redirect()->route('quotes.index')->withSuccess(trans('messages.quoteCreated'));
+		return redirect()->route('quotes.index')->withSuccess(trans('messages.quote_created'));
 	}
 
 	public function edit(Quote $quote): View
@@ -46,13 +46,13 @@ class QuoteController extends Controller
 			$updateRequest['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
 		}
 		$quote->update($updateRequest);
-		return redirect()->route('quotes.index')->withSuccess(trans('messages.successEditQuote'));
+		return redirect()->route('quotes.index')->withSuccess(trans('messages.success_edit_quote'));
 	}
 
 	public function destroy(Quote $quote): RedirectResponse
 	{
 		$quote->delete();
 		Storage::delete($quote->thumbnail);
-		return back()->withSuccess(trans('messages.successDeleteQuote'));
+		return back()->withSuccess(trans('messages.success_delete_quote'));
 	}
 }

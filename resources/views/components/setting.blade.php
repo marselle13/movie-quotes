@@ -8,19 +8,19 @@
             <h4 class="font-bold mb-6">{{trans('messages.links')}}</h4>
             <ul>
                 <li>
-                    <a href="{{route('movies.index')}}" class="{{request()->is('admin/movies') ? "text-white" : " "}}">{{trans('messages.allMovies')}}</a>
+                    <a href="{{route('movies.index')}}" class="{{request()->is('admin/movies') ? "text-white" : " "}}">{{trans('messages.all_movies')}}</a>
                 </li>
                 <li>
-                    <a href="{{route('quotes.index')}}" class="{{request()->is('admin/quotes') ? "text-white" : " "}}">{{trans('messages.allQuotes')}}</a>
+                    <a href="{{route('quotes.index')}}" class="{{request()->is('admin/quotes') ? "text-white" : " "}}">{{trans('messages.all_quotes')}}</a>
                 </li>
                 <li>
                     <a href="{{route('movies.create')}}" class="{{request()->is('admin/movies/create') ? "text-white" : " "}}"
-                    >{{trans('messages.addMovie')}}</a>
+                    >{{trans('messages.add_movie')}}</a>
                 </li>
 
                 <li>
                     <a href="{{route('quotes.create')}}" class="{{request()->is('admin/quotes/create') ? "text-white" : " "}}"
-                    >{{trans('messages.addQuote')}}</a>
+                    >{{trans('messages.add_quote')}}</a>
                 </li>
             </ul>
         </aside>

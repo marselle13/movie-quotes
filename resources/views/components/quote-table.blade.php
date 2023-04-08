@@ -29,6 +29,6 @@
     </div>
 @else
     <div class="text-center h-full items-center flex justify-center">
-        <p>{{trans('messages.noQuotes')}}</p>
+        <p>{{trans('messages.no_quotes')}}</p>
     </div>
 @endif
