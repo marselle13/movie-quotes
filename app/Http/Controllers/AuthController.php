@@ -15,7 +15,7 @@ class AuthController extends Controller
 				->withErrors(['password' => trans('messages.errorLogin')]);
 		}
 
-		return redirect(route('admin.index'))->withSuccess(
+		return redirect(route('movies.index'))->withSuccess(
 			trans('messages.successLogin')
 		);
 	}
@@ -23,6 +23,6 @@ class AuthController extends Controller
 	public function logout(): RedirectResponse
 	{
 		auth()->logout();
-		return redirect(route('quote.index'))->withSuccess(trans('messages.successLogout'));
+		return redirect(route('page.quote'))->withSuccess(trans('messages.successLogout'));
 	}
 }

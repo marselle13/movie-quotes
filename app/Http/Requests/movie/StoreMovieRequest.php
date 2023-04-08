@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\movie;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class LoginAuthRequest extends FormRequest
+class StoreMovieRequest extends FormRequest
 {
 	/**
 	 * Get the validation rules that apply to the request.
@@ -14,8 +15,8 @@ class LoginAuthRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'email'    => ['required', 'email'],
-			'password' => ['required'],
+			'name.en' => ['required', Rule::unique('movies', 'name->en')],
+			'name.ka' => ['required', Rule::unique('movies', 'name->ka')],
 		];
 	}
 
@@ -27,8 +28,8 @@ class LoginAuthRequest extends FormRequest
 	public function attributes(): array
 	{
 		return [
-			'email'    => trans('messages.email'),
-			'password' => trans('messages.password'),
+			'name.en' => trans('messages.movieName'),
+			'name.ka' => trans('messages.movieName'),
 		];
 	}
 }

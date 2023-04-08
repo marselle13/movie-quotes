@@ -16,9 +16,11 @@ class QuoteFactory extends Factory
 	 */
 	public function definition(): array
 	{
+		$fakerKa = \Faker\Factory::create('ka_GE');
 		return [
-			'quote' => json_encode(['en' => fake()->text,
-				'ka'                        => fake()->text]),
+			'quote' => ['en'=> fake()->text,
+				'ka'           => $fakerKa->realText(100)],
+			'thumbnail' => 'images/example.png',
 		];
 	}
 }

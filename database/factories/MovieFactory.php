@@ -9,17 +9,18 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class MovieFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
-        return [
-            'name' => json_encode(['en' => fake()->sentence,
-                'ka' => fake()->sentence]),
-            'slug' => fake()->unique()->slug,
-        ];
-    }
+	/**
+	 * Define the model's default state.
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function definition(): array
+	{
+		$fakerKa = \Faker\Factory::create('ka_GE');
+		return [
+			'name' => ['en' => fake()->sentence,
+				'ka'           => $fakerKa->realText(10)],
+			'slug' => fake()->unique()->slug,
+		];
+	}
 }
