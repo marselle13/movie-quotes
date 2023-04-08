@@ -3,6 +3,15 @@
 This is a web application that allows users to add and manage movie quotes in English and Georgian languages. Users can easily add new movies and their quotes, as well as view and edit existing ones. 
 
 #
+### Table of Contents
+* [Prerequisites](#prerequisites)
+* [Tech Stack](#tech-stack)
+* [Getting Start](#getting-start)
+* [Migrations](#migration)
+* [Development](#development)
+* [Project Structure](#project-structure)
+
+#
 ### Prerequisites
 
 * <img src="readme/assets/php.svg" width="35" style="position: relative; top: 8px" /> *PHP@8.2 and up*
