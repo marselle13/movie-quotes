@@ -2,8 +2,8 @@
 <section class="text-white max-w-7xl">
     <div class="mb-16">
         @if(file_exists('storage/' . $quote->thumbnail))
-        <img src="{{asset('storage/' . $quote->thumbnail) }}" alt="img"
-             class="mx-auto w-[700px] h-[386px] bg-cover rounded-lg">
+            <img src="{{asset('storage/' . $quote->thumbnail) }}" alt="img"
+                 class="mx-auto w-[700px] h-[386px] bg-cover rounded-lg">
         @else
             <img src="{{$quote->thumbnail }}" alt="img"
                  class="mx-auto w-[700px] h-[386px] bg-cover rounded-lg">

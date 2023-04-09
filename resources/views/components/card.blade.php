@@ -3,8 +3,8 @@
     @foreach($quotes as $quote)
         <div id={{$quote->id}}>
             @if(file_exists('storage/' . $quote->thumbnail))
-            <img src="{{asset('storage/' . $quote->thumbnail)}}" alt="img"
-                 class="w-[700px] h-[386px] bg-cover rounded-t-lg">
+                <img src="{{asset('storage/' . $quote->thumbnail)}}" alt="img"
+                     class="w-[700px] h-[386px] bg-cover rounded-t-lg">
             @else
                 <img src="{{$quote->thumbnail}}" alt="img"
                      class="w-[700px] h-[386px] bg-cover rounded-t-lg">
