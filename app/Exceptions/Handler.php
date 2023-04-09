@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -41,5 +43,20 @@ class Handler extends ExceptionHandler
 	{
 		$this->reportable(function (Throwable $e) {
 		});
+	}
+
+	public function render($request, Throwable $exception)
+	{
+		if ($exception instanceof MethodNotAllowedHttpException && $request->method() === 'GET')
+		{
+			return response('Method Not Allowed', 405);
+		}
+
+		if ($exception instanceof HttpResponseException)
+		{
+			return $exception->getResponse();
+		}
+
+		return parent::render($request, $exception);
 	}
 }
