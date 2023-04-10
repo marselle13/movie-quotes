@@ -6,7 +6,7 @@
     <div class="flex h-20 items-center justify-center">
         <div>
             <div class="flex space-x-4">
-                <a href="{{route('page.quote')}}"
+                <a href="{{route('quotes.show')}}"
                    class="text-gray-300 rounded-md hover:text-white  px-3 py-2 text-sm font-medium  hover:bg-gray-700  {{request()->is('/') ? "bg-gray-900" : ""}}"
                    aria-current="page">{{trans('messages.quote')}}</a>
                 @guest

@@ -11,6 +11,6 @@
     </div>
     <div class="flex flex-col gap-32 text-center">
         <h2 class="text-5xl">{{$quote->quote}}</h2>
-        <a href="{{route('page.movie',$quote->movie->slug)}}" class="text-5xl underline">{{$quote->movie->name}}</a>
+        <a href="{{route('movies.show',$quote->movie->slug)}}" class="text-5xl underline">{{$quote->movie->name}}</a>
     </div>
 </section>

@@ -6,7 +6,7 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200 w-full">
                         <div class="flex items-center">
-                            <a href="{{route('page.movie',$quote->movie->slug)}}#{{$quote->id}}"
+                            <a href="{{route('movies.show',$quote->movie->slug)}}#{{$quote->id}}"
                                class="text-sm leading-5 font-medium text-gray-900">{{ Str::limit($quote->quote, 40, $end='...') }}</a>
                         </div>
                     </td>
