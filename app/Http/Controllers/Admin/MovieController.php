@@ -17,6 +17,11 @@ class MovieController extends Controller
 		return view('admin.movies.index', ['movies' => Movie::latest()->get()]);
 	}
 
+	public function show(Movie $movie): View
+	{
+		return view('page.movie', ['movie' => $movie]);
+	}
+
 	public function create(): View
 	{
 		return view('admin.movies.create');

@@ -18,6 +18,11 @@ class QuoteController extends Controller
 		return view('admin.quotes.index', ['quotes' => Quote::latest()->get()]);
 	}
 
+	public function show(): View
+	{
+		return view('page.quote', ['quote' => Quote::inRandomOrder()->first()]);
+	}
+
 	public function create(): View
 	{
 		return view('admin.quotes.create', ['movies' => Movie::all()]);
