@@ -12,13 +12,14 @@ use Illuminate\Support\Str;
 
 class MovieController extends Controller
 {
-    public function movie(Movie $movie): View
-    {
-        return view('page.movie', ['movie' => $movie]);
-    }
 	public function index(): View
 	{
 		return view('admin.movies.index', ['movies' => Movie::latest()->get()]);
+	}
+
+	public function show(Movie $movie): View
+	{
+		return view('page.movie', ['movie' => $movie]);
 	}
 
 	public function create(): View
