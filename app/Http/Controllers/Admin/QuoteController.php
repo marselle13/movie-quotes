@@ -13,6 +13,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class QuoteController extends Controller
 {
+    public function quote(): View
+    {
+        return view('page.quote', ['quote' => Quote::inRandomOrder()->first()]);
+    }
 	public function index(): View
 	{
 		return view('admin.quotes.index', ['quotes' => Quote::latest()->get()]);

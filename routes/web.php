@@ -19,10 +19,6 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('language/{locale}', [LanguageController::class, 'setLanguage'])->name('language.set');
 
-Route::controller(PageController::class)->group(function () {
-	Route::get('/', 'quote')->name('page.quote');
-	Route::get('movies/{movie:slug}', 'movie')->name('page.movie');
-});
 
 Route::view('login', 'auth.loginPage')->middleware('guest')->name('auth.loginPage');
 Route::controller(AuthController::class)->group(function () {
@@ -30,8 +26,9 @@ Route::controller(AuthController::class)->group(function () {
 	Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
 });
 
+Route::get('movies/{movie:slug}', [MovieController::class,'movie'])->name('page.movie');
 Route::controller(MovieController::class)->middleware('auth')->group(function () {
-	Route::get('admin/movies/', 'index')->name('movies.index');
+    Route::get('admin/movies/', 'index')->name('movies.index');
 	Route::get('admin/movies/create', 'create')->name('movies.create');
 	Route::post('admin/movies', 'store')->name('movies.store');
 	Route::get('admin/movies/{movie}/edit', 'edit')->name('movies.edit');
@@ -39,8 +36,9 @@ Route::controller(MovieController::class)->middleware('auth')->group(function ()
 	Route::delete('admin/movies/{movie}', 'destroy')->name('movies.destroy');
 });
 
+Route::get('/', [QuoteController::class,'quote'])->name('page.quote');
 Route::controller(QuoteController::class)->middleware('auth')->group(function () {
-	Route::get('admin/quotes', 'index')->name('quotes.index');
+    Route::get('admin/quotes', 'index')->name('quotes.index');
 	Route::get('admin/quotes/create', 'create')->name('quotes.create');
 	Route::post('admin/quotes', 'store')->name('quotes.store');
 	Route::get('admin/quotes/{quote}/edit', 'edit')->name('quotes.edit');
