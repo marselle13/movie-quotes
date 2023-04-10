@@ -29,6 +29,6 @@
     </div>
 @else
     <div class="text-center">
-        <p>{{trans('messages.noMovies')}}</p>
+        <p>{{trans('messages.no_movies')}}</p>
     </div>
 @endif

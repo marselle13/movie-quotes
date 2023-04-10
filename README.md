@@ -91,6 +91,12 @@ then run vite config:
 ```
 it builds css files into executable scripts.
 
+register new user:
+
+```sh
+  php artisan create:user
+```
+
 #
 ### Project Structure
 

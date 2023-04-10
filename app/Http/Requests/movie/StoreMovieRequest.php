@@ -28,8 +28,8 @@ class StoreMovieRequest extends FormRequest
 	public function attributes(): array
 	{
 		return [
-			'name.en' => trans('messages.movieName'),
-			'name.ka' => trans('messages.movieName'),
+			'name.en' => 'Movie Name',
+			'name.ka' => 'Movie Name',
 		];
 	}
 }
