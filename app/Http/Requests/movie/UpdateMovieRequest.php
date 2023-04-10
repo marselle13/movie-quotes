@@ -23,8 +23,8 @@ class UpdateMovieRequest extends FormRequest
 	public function attributes(): array
 	{
 		return [
-			'name.en' => 'Movie Name',
-			'name.ka' => 'Movie Name',
+			'name.en' => trans('messages.movie_name'),
+			'name.ka' => trans('messages.movie_name'),
 		];
 	}
 }
