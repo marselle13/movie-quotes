@@ -106,3 +106,5 @@ register new user:
 ### Project Structure
 
 [Database Design Diagram](https://drawsql.app/teams/nikas-team-2/diagrams/quote-app "Draw.io")
+
+![drawsql](./readme/assets/drawsql.png)

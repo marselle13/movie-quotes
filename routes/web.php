@@ -24,20 +24,20 @@ Route::controller(AuthController::class)->group(function () {
 	Route::post('logout', 'logout')->middleware('auth')->name('auth.logout');
 });
 
-Route::get('movies/{movie:slug}', [MovieController::class, 'show'])->name('page.movie');
 Route::controller(MovieController::class)->middleware('auth')->group(function () {
 	Route::get('admin/movies/', 'index')->name('movies.index');
-	Route::get('admin/movies/create', 'create')->name('movies.create');
+    Route::get('movies/{movie:slug}','show')->name('movies.show')->withoutMiddleware('auth');
+    Route::get('admin/movies/create', 'create')->name('movies.create');
 	Route::post('admin/movies', 'store')->name('movies.store');
 	Route::get('admin/movies/{movie}/edit', 'edit')->name('movies.edit');
 	Route::patch('admin/movies/{movie}', 'update')->name('movies.update');
 	Route::delete('admin/movies/{movie}', 'destroy')->name('movies.destroy');
 });
 
-Route::get('/', [QuoteController::class, 'show'])->name('page.quote');
 Route::controller(QuoteController::class)->middleware('auth')->group(function () {
 	Route::get('admin/quotes', 'index')->name('quotes.index');
-	Route::get('admin/quotes/create', 'create')->name('quotes.create');
+    Route::get('/', 'show')->name('quotes.show')->withoutMiddleware('auth');
+    Route::get('admin/quotes/create', 'create')->name('quotes.create');
 	Route::post('admin/quotes', 'store')->name('quotes.store');
 	Route::get('admin/quotes/{quote}/edit', 'edit')->name('quotes.edit');
 	Route::patch('admin/quotes/{quote}', 'update')->name('quotes.update');
