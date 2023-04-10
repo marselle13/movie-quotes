@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdminController extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    public function index(){
-        return view('admin.index');
-    }
+	public function index()
+	{
+		return view('admin.index');
+	}
 }
