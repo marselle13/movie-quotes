@@ -23,6 +23,6 @@ class AuthController extends Controller
 	public function logout(): RedirectResponse
 	{
 		auth()->logout();
-		return redirect(route('page.quote'))->withSuccess(trans('messages.success_logout'));
+		return redirect(route('quotes.show'))->withSuccess(trans('messages.success_logout'));
 	}
 }
